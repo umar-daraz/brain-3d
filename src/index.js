@@ -297,5 +297,5 @@ class App {
   }
 }
 
-const app = new App("#app");
+const app = new App("#brain3d");
 app.init();
