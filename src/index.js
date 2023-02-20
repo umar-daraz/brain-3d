@@ -213,12 +213,12 @@ class App {
 
   _addListeners() {
     window.addEventListener("resize", this._resizeCb, { passive: true });
-    window.addEventListener("mousemove", this._mousemoveCb, { passive: true });
+    this.container.addEventListener("mousemove", this._mousemoveCb, { passive: true });
   }
 
   _removeListeners() {
     window.removeEventListener("resize", this._resizeCb, { passive: true });
-    window.removeEventListener("mousemove", this._mousemoveCb, {
+    this.container.removeEventListener("mousemove", this._mousemoveCb, {
       passive: true,
     });
   }
