@@ -213,20 +213,19 @@ class App {
 
   _addListeners() {
     window.addEventListener("resize", this._resizeCb, { passive: true });
-    this.container.addEventListener("mousemove", this._mousemoveCb, { passive: true });
+    window.addEventListener("mousemove", this._mousemoveCb, { passive: true });
   }
 
   _removeListeners() {
     window.removeEventListener("resize", this._resizeCb, { passive: true });
-    this.container.removeEventListener("mousemove", this._mousemoveCb, {
+    window.removeEventListener("mousemove", this._mousemoveCb, {
       passive: true,
     });
   }
 
   _onMousemove(e) {
-    const x = (e.clientX / this.container.offsetWidth) * 2 - 1;
-    const y = -((e.clientY / this.container.offsetHeight) * 2 - 1);
-
+    const x = (e.clientX / window.innerWidth) * 2 - 1.5;
+    const y = -(e.clientY / window.innerHeight) * 2 + 1;
     this.mouse.set(x, y);
 
     gsap.to(this.camera.position, {
